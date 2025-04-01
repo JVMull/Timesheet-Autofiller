@@ -1,0 +1,68 @@
+const rowIds = ['ext-gen1486', 'ext-gen1492', 'ext-gen1498', 'ext-gen1504']; // Example row IDs
+
+
+// Where data is stored
+store.data.map["ext-record-38"].data
+
+// Get store and records
+var store = Ext.ComponentQuery.query('#inOutGridPanel')[0].getStore();
+var inRow = store.getAt(0);
+var outRow = store.getAt(1);
+
+// Set times for the week
+// Sunday 03/17/2025 (day off)
+inRow.set('03/17/2025', '');
+outRow.set('03/17/2025', '');
+
+// Monday 03/18/2025 (9am-5pm)
+inRow.set('03/18/2025', '09:00a');
+outRow.set('03/18/2025', '05:00p');
+
+// Tuesday 03/19/2025 (10am-6pm)
+inRow.set('03/19/2025', '10:00a');
+outRow.set('03/19/2025', '06:00p');
+
+// Wednesday 03/20/2025 (9am-5pm)
+inRow.set('03/20/2025', '09:00a');
+outRow.set('03/20/2025', '05:00p');
+
+// Thursday 03/21/2025 (9am-5pm)
+inRow.set('03/21/2025', '09:00a');
+outRow.set('03/21/2025', '05:00p');
+
+// Friday 03/22/2025 (8am-4pm)
+inRow.set('03/22/2025', '08:00a');
+outRow.set('03/22/2025', '04:00p');
+
+// Refresh the view to update calculations
+Ext.ComponentQuery.query('#inOutGridPanel')[0].getView().refresh(); 
+
+
+
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+// Do something like this to stimulate clicks on the page
+
+(async () => {
+  var cell = document.querySelector('.x-grid-cell-gridcolumn-1155');
+  cell.click();
+  await wait(2000);
+  var cell = document.querySelector('.x-grid-cell-gridcolumn-1156');
+  cell.click();
+  await wait(2000);
+  var cell = document.querySelector('.x-grid-cell-gridcolumn-1157');
+  cell.click();
+  await wait(2000);
+  var cell = document.querySelector('.x-grid-cell-gridcolumn-1158');
+  cell.click();
+})();
+
+
+//Cells change
+//Find a way to find the lowest cell and try catch to continue for 17 cells until it's done to catch errors
+// Go row by row
+//Add a way to click save at the end
+// Add a way to store the times for each day 
+//make and call a function that returns the days based off of the starting date of the pay period and store it in a list to iterate
+console.log(new Date('03/31/2025').toLocaleString('en-US', { weekday: 'long' }));
+// Add edge cases for 
+
